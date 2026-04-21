@@ -24,14 +24,12 @@ std::string infx2pstfx(const std::string& inf) {
                 out.push_back(' ');
             numCheck = true;
             out.push_back(inf[index]);
-        }
-        else if (symbols[inf[index]] == "operation") {
+        } else if (symbols[inf[index]] == "operation") {
             numCheck = false;
             if (stack.empty() || inf[index] == '(' ||
                 (priorities[inf[index]] > stack.get())) {
                 stack.Push(inf[index]);
-            }
-            else {
+            } else {
                 while (!stack.empty() &&
                     priorities[inf[index]] <= priorities[stack.get()]) {
                     out.push_back(' ');
