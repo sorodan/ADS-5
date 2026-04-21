@@ -72,22 +72,18 @@ int eval(const std::string& pref) {
                 index++;
             }
             stack.Push(number);
-        }
-        else if (symbols[pref[index]] == "operation") {
+        } else if (symbols[pref[index]] == "operation") {
             int number1 = stack.get();
             stack.Pop();
             int number2 = stack.get();
             stack.Pop();
             if (pref[index] == '+') {
                 stack.Push(number2 + number1);
-            }
-            else if (pref[index] == '-') {
+            } else if (pref[index] == '-') {
                 stack.Push(number2 - number1);
-            }
-            else if (pref[index] == '*') {
+            } else if (pref[index] == '*') {
                 stack.Push(number2 * number1);
-            }
-            else if (pref[index] == '/') {
+            } else if (pref[index] == '/') {
                 stack.Push(number2 / number1);
             }
         }
